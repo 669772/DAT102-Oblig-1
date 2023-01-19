@@ -76,6 +76,21 @@ public class Film {
 		this.filmselskap = filmselskap;
 	}
 	
-	
+	// Overkj�ring av equals-metoden
+		@Override
+		public boolean equals(Object andre) {
+			if (this == andre) {
+				return true;
+			}
+			if (andre == null) {
+				return false;
 
+			}
+			if (getClass() != andre.getClass()) {
+				return false;
+			}
+			Film denAndre = (Film) andre;
+			boolean like = this.titel == denAndre.getTitel() && this.filmnr == denAndre.getFilmnr();
+			return like;
+		}
 }
