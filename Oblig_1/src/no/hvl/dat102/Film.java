@@ -1,5 +1,7 @@
 package no.hvl.dat102;
 
+import java.util.Objects;
+
 public class Film {
 
 	public enum Sjanger {
@@ -75,22 +77,23 @@ public class Film {
 	public void setFilmselskap(String filmselskap) {
 		this.filmselskap = filmselskap;
 	}
-	
-	// Overkj�ring av equals-metoden
-		@Override
-		public boolean equals(Object andre) {
-			if (this == andre) {
-				return true;
-			}
-			if (andre == null) {
-				return false;
 
-			}
-			if (getClass() != andre.getClass()) {
-				return false;
-			}
-			Film denAndre = (Film) andre;
-			boolean like = this.titel == denAndre.getTitel() && this.filmnr == denAndre.getFilmnr();
-			return like;
-		}
+	@Override
+	public int hashCode() {
+		return Objects.hash(filmnr, titel);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Film other = (Film) obj;
+		return filmnr == other.filmnr && Objects.equals(titel, other.titel);
+	}
+	
+	
 }
