@@ -17,6 +17,7 @@ public class Film {
 	private String filmselskap;
 
 	public Film() {
+		
 	}
 
 	public Film(int filmnr, String produsent, String titel, int lanseringsaar, Sjanger sjanger, String filmselskap) {
