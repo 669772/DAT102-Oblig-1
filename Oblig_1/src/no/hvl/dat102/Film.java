@@ -3,11 +3,6 @@ package no.hvl.dat102;
 import java.util.Objects;
 
 public class Film {
-
-	public enum Sjanger {
-		ACTION, DRAMA, HISTORY, SCIFI
-
-	}
 	
 	private int filmnr;
 	private String produsent;

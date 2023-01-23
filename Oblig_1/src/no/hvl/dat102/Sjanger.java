@@ -1,5 +1,5 @@
 package no.hvl.dat102;
 
-public class Sjanger {
-
+	public enum Sjanger {
+		ACTION, DRAMA, HISTORY, SCIFI
 }
