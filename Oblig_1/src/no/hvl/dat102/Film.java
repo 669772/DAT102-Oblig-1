@@ -76,7 +76,8 @@ public class Film {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(filmnr, titel);
+		Integer temp = filmnr;
+		return temp.hashCode();
 	}
 
 	@Override
