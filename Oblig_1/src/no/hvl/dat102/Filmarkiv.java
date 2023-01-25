@@ -83,8 +83,20 @@ public class Filmarkiv implements FilmarkivADT {
 
 	@Override
 	public boolean slettFilm(int filmnr) {
-		// TODO Auto-generated method stub
-		return false;
+
+		boolean svar = false;
+
+		for (int i = filmnr; i <= nesteledig; i++) {
+			if (i == nesteledig) {
+				data[i] = null;
+				svar = true;
+			} else {
+				data[i] = data[i + 1];
+			}
+		}
+		nesteledig--;
+
+		return svar;
 	}
 
 	@Override
