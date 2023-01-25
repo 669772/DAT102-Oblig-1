@@ -1,7 +1,5 @@
 package no.hvl.dat102;
 
-import java.util.*;
-
 import no.hvl.dat102.adt.*;
 
 public class Filmarkiv implements FilmarkivADT {
