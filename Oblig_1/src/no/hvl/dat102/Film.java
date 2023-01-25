@@ -4,12 +4,12 @@ import java.util.Objects;
 
 public class Film {
 	
-	private int filmnr;
-	private String produsent;
-	private String titel;
-	private int lanseringsaar;
-	private Sjanger sjanger;
-	private String filmselskap;
+	protected int filmnr;
+	protected String produsent;
+	protected String titel;
+	protected int lanseringsaar;
+	protected Sjanger sjanger;
+	protected String filmselskap;
 
 	public Film() {
 		
@@ -79,8 +79,6 @@ public class Film {
 		Integer temp = filmnr;
 		return temp.hashCode();
 	}
-
-	//Aguhhh
 	
 	@Override
 	public boolean equals(Object obj) {
