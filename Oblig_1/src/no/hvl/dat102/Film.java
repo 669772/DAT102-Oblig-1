@@ -6,7 +6,7 @@ public class Film {
 	
 	protected int filmnr;
 	protected String produsent;
-	protected String titel;
+	protected String tittel;
 	protected int lanseringsaar;
 	protected Sjanger sjanger;
 	protected String filmselskap;
@@ -15,11 +15,11 @@ public class Film {
 		
 	}
 
-	public Film(int filmnr, String produsent, String titel, int lanseringsaar, Sjanger sjanger, String filmselskap) {
+	public Film(int filmnr, String produsent, String tittel, int lanseringsaar, Sjanger sjanger, String filmselskap) {
 
 		this.filmnr = filmnr;
 		this.produsent = produsent;
-		this.titel = titel;
+		this.tittel = tittel;
 		this.lanseringsaar = lanseringsaar;
 		this.sjanger = sjanger;
 		this.filmselskap = filmselskap;
@@ -42,12 +42,12 @@ public class Film {
 		this.produsent = produsent;
 	}
 
-	public String getTitel() {
-		return titel;
+	public String getTittel() {
+		return tittel;
 	}
 
-	public void setTitel(String titel) {
-		this.titel = titel;
+	public void setTittel(String tittel) {
+		this.tittel = tittel;
 	}
 
 	public int getLanseringsaar() {
@@ -89,7 +89,7 @@ public class Film {
 		if (getClass() != obj.getClass())
 			return false;
 		Film other = (Film) obj;
-		return filmnr == other.filmnr && Objects.equals(titel, other.titel);
+		return filmnr == other.filmnr && Objects.equals(tittel, other.tittel);
 	}
 	
 	

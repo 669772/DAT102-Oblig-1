@@ -114,7 +114,7 @@ public class Filmarkiv implements FilmarkivADT {
 		Film[] svar = new Film[nesteledig];
 		int j = 0;
 		for (int i = 0; i < nesteledig; i++) {
-			if (data[i].getTitel().contains(delstreng)) {
+			if (data[i].getTittel().contains(delstreng)) {
 				svar[j] = data[i];
 				j++;
 			}
@@ -144,11 +144,13 @@ public class Filmarkiv implements FilmarkivADT {
 	public int antall(Sjanger sjanger) {
 
 		int svar = 0;
+		
 		for (int i = 0; i < nesteledig; i++) {
 			if (data[i].getSjanger() == sjanger) {
 				svar++;
 			}
 		}
+		
 		return svar;
 	}
 
