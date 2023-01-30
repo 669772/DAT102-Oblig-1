@@ -144,13 +144,13 @@ public class Filmarkiv implements FilmarkivADT {
 	public int antall(Sjanger sjanger) {
 
 		int svar = 0;
-		
+
 		for (int i = 0; i < nesteledig; i++) {
 			if (data[i].getSjanger() == sjanger) {
 				svar++;
 			}
 		}
-		
+
 		return svar;
 	}
 
