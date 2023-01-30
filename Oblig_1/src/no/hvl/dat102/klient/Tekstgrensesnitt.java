@@ -29,26 +29,36 @@ public class Tekstgrensesnitt {
 	// lese opplysningene om en FILM fra tastatur
 	public Film lesFilm() {
 
+		Film svar = null;
+
 		try (Scanner scanner = new Scanner(System.in)) {
 			System.out.println("Søk etter Tittel eller Produsent: ");
 			String tEp = scanner.nextLine();
 			tEp = tEp.toLowerCase();
 			String svT;
 			Film[] sTab = null;
+
 			if (tEp.equals("tittel")) {
-				System.out.println("Hva er Tittelen: ");
+
+				System.out.println("\n Hva er Tittelen: ");
 				svT = scanner.nextLine();
+				svT = svT.toLowerCase();
 
 				sTab = arkiv.soekTittel(svT);
-				skrivUtFilmProdusent(arkiv, svT);
+				skrivUtFilmDelstrengITittel(arkiv, svT);
+
 			} else if (tEp.equals("produsent")) {
-				System.out.println("Hva er Produsent: ");
+
+				System.out.println("\n Hva er Produsent: ");
 				svT = scanner.nextLine();
+				svT = svT.toLowerCase();
 
 				sTab = arkiv.soekProdusent(svT);
-				skrivUtFilmDelstrengITittel(arkiv, svT);
+				skrivUtFilmProdusent(arkiv, svT);
+
 			} else {
-				System.out.println("Fac u!!");
+				System.out.println("\n Fant ingenting");
+				return null;
 			}
 
 			System.out.println("Hvilke av disse? ");
@@ -56,7 +66,11 @@ public class Tekstgrensesnitt {
 			int intIndex = 0;
 			intIndex = Integer.parseInt(index);
 
-			Film svar = sTab[intIndex];
+			if(intIndex >= sTab.length) {
+				System.out.print("Det er ikke et valg");
+				return null;
+			}
+			svar = sTab[intIndex];
 
 			return svar;
 		}
@@ -66,7 +80,7 @@ public class Tekstgrensesnitt {
 	public void visFilm(Film film) {
 		String svar = "\nNummer: " + film.getFilmnr() + "\nFilmselskap: " + film.getFilmselskap() + "\nÅr:"
 				+ film.getLanseringsaar() + "\nProdusent: " + film.getProdusent() + "\nTittel: " + film.getTittel()
-				+ "\nSjanger: " + film.getSjanger();
+				+ "\nSjanger: " + film.getSjanger() + "\n";
 		System.out.println(svar);
 	}
 
@@ -75,7 +89,10 @@ public class Tekstgrensesnitt {
 		Film[] svar = filma.soekTittel(delstreng);
 
 		for (int i = 0; i < svar.length; i++) {
-			visFilm(svar[i]);
+			if (svar[i] != null) {
+				System.out.println("\n\nIndex " + i + ":");
+				visFilm(svar[i]);
+			}
 		}
 	}
 
@@ -84,7 +101,10 @@ public class Tekstgrensesnitt {
 		Film[] svar = filma.soekProdusent(delstreng);
 
 		for (int i = 0; i < svar.length; i++) {
-			visFilm(svar[i]);
+			if (svar[i] != null) {
+				System.out.println("\n\nIndex " + i + ":");
+				visFilm(svar[i]);
+			}
 		}
 	}
 

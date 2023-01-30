@@ -1,6 +1,7 @@
 package no.hvl.dat102.klient;
 
 import no.hvl.dat102.Film;
+import no.hvl.dat102.Filmarkiv;
 import no.hvl.dat102.Sjanger;
 import no.hvl.dat102.adt.FilmarkivADT;
 
@@ -14,18 +15,24 @@ public class Meny {
     }
 
     public void start() {
-        Film f1 = new Film(1,"DreamWorks","Pus med Støvler",2023,Sjanger.ACTION,"DreamWorks");
-        Film f2 = new Film(2,"Disney","Laidy Og Landstrykeren",1600,Sjanger.HISTORY,"Disney");
-        Film f3 = new Film(3,"Pixar","Nemo",2010,Sjanger.ACTION,"Disney");
+        Film f1 = new Film(1,"dreamWorks","pus med støvler",2023,Sjanger.ACTION,"dreamWorks");
+        Film f2 = new Film(2,"disney","laidy Og landstrykeren",1600,Sjanger.HISTORY,"disney");
+        Film f3 = new Film(3,"pixar","nemo",2010,Sjanger.ACTION,"disney");
+        Film f4 = new Film(4,"Pixar","the abc",2010,Sjanger.ACTION,"disney");
+        Film f5 = new Film(5,"pixar","the abc",2010,Sjanger.ACTION,"disney");
 
         filmarkiv.leggTilFilm(f1);
         filmarkiv.leggTilFilm(f2);
         filmarkiv.leggTilFilm(f3);
+        filmarkiv.leggTilFilm(f4);
+        filmarkiv.leggTilFilm(f5);
 
-        FilmarkivADT arkiv = tekstgr.getArkiv();
-
-        arkiv = filmarkiv;
+        Filmarkiv filma = (Filmarkiv) filmarkiv;
         
-        tekstgr.lesFilm();
+        tekstgr.setArkiv(filma);
+        
+        Film valg = tekstgr.lesFilm();
+        
+        tekstgr.visFilm(valg);
     }
 }

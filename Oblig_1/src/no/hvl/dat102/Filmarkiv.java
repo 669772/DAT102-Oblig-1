@@ -119,7 +119,7 @@ public class Filmarkiv implements FilmarkivADT {
 				j++;
 			}
 		}
-		trimTab(svar, (j + 1));
+		trimTab(svar, (j-1));
 
 		return svar;
 	}
@@ -135,7 +135,7 @@ public class Filmarkiv implements FilmarkivADT {
 				j++;
 			}
 		}
-		trimTab(svar, (j + 1));
+		trimTab(svar, j);
 
 		return svar;
 	}
