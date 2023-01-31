@@ -2,23 +2,23 @@ package no.hvl.dat102;
 
 import no.hvl.dat102.adt.FilmarkivADT;
 
-public class Filmarkiv2 implements FilmarkivADT{
+public class Filmarkiv2 implements FilmarkivADT {
 
 	private int antall;
 	private LinearNode<Film> start;
-	
+
 	public Filmarkiv2() {
 		start = null;
 		antall = 0;
 	}
-	
+
 	@Override
 	public Film finnFilm(int nr) {
-		
+
 		boolean funnet = false;
 		int i = 0;
 		Film svar = null;
-		
+
 		while (funnet == false && i < antall) {
 			if (start.getElement().getFilmnr() == nr) {
 				funnet = true;
@@ -32,19 +32,38 @@ public class Filmarkiv2 implements FilmarkivADT{
 
 	@Override
 	public void leggTilFilm(Film nyFilm) {
-		// TODO Auto-generated method stub
-		
+		LinearNode<Film> newNode = new LinearNode<>(nyFilm);
+		newNode.setNeste(start);
+		start = newNode;
+		antall++;
+
 	}
 
 	@Override
 	public boolean slettFilm(int filmnr) {
-		// TODO Auto-generated method stub
+
+		LinearNode<Film> aktuell = start;
+		LinearNode<Film> forgjenger = null;
+
+		while (aktuell != null) {
+			if (aktuell.getElement().getFilmnr() == filmnr) {
+				if (forgjenger == null) {
+					start = aktuell.getNeste();
+				} else {
+					forgjenger.setNeste(aktuell.getNeste());
+				}
+				antall--;
+				return true;
+			}
+			forgjenger = aktuell;
+			aktuell = aktuell.getNeste();
+		}
 		return false;
 	}
 
 	@Override
 	public Film[] soekTittel(String delstreng) {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
 

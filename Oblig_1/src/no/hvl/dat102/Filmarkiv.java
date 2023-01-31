@@ -68,15 +68,12 @@ public class Filmarkiv implements FilmarkivADT {
 	@Override
 	public void leggTilFilm(Film nyFilm) {
 
-		if (nesteledig < data.length) {
-			data[nesteledig] = nyFilm;
-			nesteledig++;
-		} else {
+		if (nesteledig >= data.length) {
 			utvid();
-			data[nesteledig] = nyFilm;
-			nesteledig++;
 		}
-
+		
+		data[nesteledig] = nyFilm;
+		nesteledig++;
 	}
 
 	@Override
@@ -119,7 +116,7 @@ public class Filmarkiv implements FilmarkivADT {
 				j++;
 			}
 		}
-		trimTab(svar, (j-1));
+		trimTab(svar, (j - 1));
 
 		return svar;
 	}
