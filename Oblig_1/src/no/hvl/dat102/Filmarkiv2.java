@@ -61,28 +61,72 @@ public class Filmarkiv2 implements FilmarkivADT {
 		return false;
 	}
 
+	private Film[] trimTab(Film[] tab, int n) {
+		// n er antall elementer
+		Film[] nytab = new Film[n];
+		int i = 0;
+		while (i < n) {
+			nytab[i] = tab[i];
+			i++;
+		}
+		return nytab;
+	}
+
 	@Override
 	public Film[] soekTittel(String delstreng) {
-	
-		return null;
+
+		LinearNode<Film> aktuell = start;
+		int i = 0;
+		Film[] svar = new Film[antall];
+
+		while (aktuell != null) {
+
+			if (aktuell.getElement().getTittel().contains(delstreng)) {
+				svar[i] = aktuell.getElement();
+			}
+			aktuell = aktuell.getNeste();
+			i++;
+		}
+		trimTab(svar, i);
+		return svar;
 	}
 
 	@Override
 	public Film[] soekProdusent(String delstreng) {
-		// TODO Auto-generated method stub
-		return null;
+		LinearNode<Film> aktuell = start;
+		int i = 0;
+		Film[] svar = new Film[antall];
+
+		while (aktuell != null) {
+
+			if (aktuell.getElement().getProdusent().contains(delstreng)) {
+				svar[i] = aktuell.getElement();
+			}
+			aktuell = aktuell.getNeste();
+			i++;
+		}
+		trimTab(svar, i);
+		return svar;
 	}
 
 	@Override
 	public int antall(Sjanger sjanger) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		LinearNode<Film> aktuell = start;
+		int as = 0;
+		
+		while (aktuell != null) {
+			if (aktuell.getElement().getSjanger() == sjanger) {
+				as++;
+			}
+		}
+		return as;
 	}
 
 	@Override
 	public int antall() {
 		// TODO Auto-generated method stub
-		return 0;
+		return antall;
 	}
 
 }
