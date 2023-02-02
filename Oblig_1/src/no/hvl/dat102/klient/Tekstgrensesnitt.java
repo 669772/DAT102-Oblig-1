@@ -116,5 +116,8 @@ public class Tekstgrensesnitt {
 
 		System.out.print(ut);
 	}
+	/**Første kall på film.antall er O(1), 
+	deretter skrives det ut statestikk over antall filmer med de ulike sjangerene disse 4 blir dermed 4k,
+	derfor blir O-notasjonen O(k).**/
 
 }

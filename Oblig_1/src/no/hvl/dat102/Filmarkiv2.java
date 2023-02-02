@@ -122,6 +122,7 @@ public class Filmarkiv2 implements FilmarkivADT {
 		}
 		return as;
 	}
+	//O-notasjon O(k), løkken går gjennom hvert element en gang, derav O(k).
 
 	@Override
 	public int antall() {
