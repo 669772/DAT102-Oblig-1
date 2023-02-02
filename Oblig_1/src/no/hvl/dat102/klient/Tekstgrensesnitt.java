@@ -32,7 +32,7 @@ public class Tekstgrensesnitt {
 		Film svar = null;
 
 		try (Scanner scanner = new Scanner(System.in)) {
-			System.out.println("Søk etter Tittel eller Produsent: ");
+			System.out.println("\n\nSøk etter Tittel eller Produsent: ");
 			String tEp = scanner.nextLine();
 			tEp = tEp.toLowerCase();
 			String svT;

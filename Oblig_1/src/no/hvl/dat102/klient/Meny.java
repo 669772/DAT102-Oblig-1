@@ -31,6 +31,7 @@ public class Meny {
         
         tekstgr.setArkiv(filma);
         
+        tekstgr.skrivUtStatistikk(filmarkiv);
         Film valg = tekstgr.lesFilm();
         
         tekstgr.visFilm(valg);
